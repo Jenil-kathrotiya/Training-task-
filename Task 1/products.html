@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background: blue;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+<h2 align="center">Product Listing</h2>
+
+<div class="container">
+
+    <div class="card">
+       <img src="images/S25 2026-02-23 173416.jpg" alt="Phone">
+        <h3>Samsung Galaxy S25</h3>
+        <p class="price">₹1,50,000</p>
+        <a href="#" class="btn">Details</a>
+    </div>
+
+    <div class="card">
+        <img src="images/17 pro 2026-02-23 173301.jpg" alt="Phone">
+        <h3>17 Pro Max</h3>
+        <p class="price">₹2,00,000</p>
+        <a href="#" class="btn">Details</a>
+    </div>
+
+    <div class="card">
+        <img src="images/VivoX200 2026-02-23 173915.jpg" alt="Phone">
+        <h3>Vivo X200</h3>
+        <p class="price">₹85000</p>
+        <a href="#" class="btn">Details</a>
+    </div>
+
+    <div class="card">
+        <img src="images/nokia 2026-02-23 173608.jpg" alt="Phone">
+        <h3>Nokia Nu Dablu</h3>
+        <p class="price">₹2500</p>
+        <a href="#" class="btn">Details</a>
+    </div>
+
+</div>
+
+</body>
+</html>

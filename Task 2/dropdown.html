@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Menu</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            overflow: hidden;
+            border-radius: 8px;
+            padding-left: 10px;
+        }
+
+        .navbar a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        
+        .navbar a:hover {
+            background-color: #3498db;
+        }
+
+        .dropdown {
+            float: left;
+            overflow:visible;
+           
+        }
+
+        .dropdown .dropbtn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        /* Hover effect for dropdown button */
+        .dropdown .dropbtn:hover {
+            background-color: #c0392b;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow:auto;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            transition: 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<h2 align="center">Task 2</h2>
+
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">News</a>
+
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="https://www.google.com" target="_blank">Google</a><br>
+            <a href="https://www.akashtechnolabs.com" target="_blank">Aakash Technolabs</a><br>
+            <a href="https://www.google.com" target="_blank">Google</a><br>
+        </div>
+    </div>
+</div>
+
+<div style="padding:20px;">
+    <h3>Dropdown Menu Example</h3>
+    <p>Hover over the "Dropdown" to see menu.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    
+
+    <Script>
+        function Dosum(op) {
+            var a = document.getElementsByName("txt1")[0].value
+            var b = document.getElementsByName("txt2")[0].value
+        
+
+            if (op == "add") {
+                var c = parseInt(a) + parseInt(b)
+                document.getElementsByName("result")[0].value = c
+            } else if (op == "sub") {
+                var c = parseInt(a) - parseInt(b)
+                document.getElementsByName("result")[0].value = c
+            } else if (op == "mul") {
+                var c = parseInt(a) * parseInt(b)
+                document.getElementsByName("result")[0].value = c
+            } else if (op == "div") {
+                var c = parseInt(a) / parseInt(b)
+                document.getElementsByName("result")[0].value = c
+            }
+            else {
+                document.write("Enter Valid Number !!!!")
+            }
+        }
+
+    </Script>
+</head>
+
+<body>
+    <div class="container">
+        <form id="myfrm">
+            Number 1: <input type="text" name="txt1" class="enterValue"  />
+            <br>
+            <br>
+            Number 2: <input type="text" name="txt2" class="enterValue"  />
+            <br>
+            <br>
+            Result: <input type="text" name="result" class="resultValue" readonly />
+            <br>
+            <br>
+            <input type="button" value="Add" name="op" onclick="Dosum('add')" class="btnValue">
+            <input type="button" value="Sub" name="op" onclick="Dosum('sub')" class="btnValue">
+            <input type="button" value="Mul" name="op" onclick="Dosum('mul')" class="btnValue">
+            <input type="button" value="Div" name="op" onclick="Dosum('div')" class="btnValue">
+            <br>
+    
+            <!-- <button type="button" value="Click Me" onclick="Dosum()">Click Me</button> -->
+
+        </form>
+    </div>
+</body>
+
+</html>

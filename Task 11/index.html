@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start-Stop Counter</title>
+    <style>
+        h1{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        let start_value = 0
+        var a
+        function start() {
+            a = setInterval(() => {
+                start_value++
+                document.getElementById("count").innerText = start_value;
+                if(start_value == 11){
+                    stop()
+                }
+            },1000);
+        }
+
+        function stop() {
+            clearInterval(a)
+            start_value = 0
+            document.getElementById("count").innerText = start_value;
+        }
+
+        function pause() {
+            clearInterval(a)
+            document.getElementById("count").innerText = start_value;
+        }
+    </script>
+</head>
+<body>
+    <h1>Start-Stop Counter</h1>
+    <h2 id="count">0</h2>
+    <button type="button" onclick="start()">Start</button>
+    <button type="button" onclick="stop()">Stop</button>
+    <button type="button" onclick="pause()">Pause</button>
+</body>
+</html>

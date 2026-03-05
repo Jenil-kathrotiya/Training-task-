@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Cal</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .a {
+            border: none;
+        }
+    </style>
+
+
+    <script>
+
+        function calculate_GST() {
+            var amount = parseInt(document.getElementsByName("amount")[0].value)
+            var rate = parseInt(document.getElementsByName("drpdwn")[0].value)
+            var op = document.getElementsByName("typeValue")[0].value
+
+            var total = 0
+            if (op == "exclusive") {
+                var GST_amount = (amount * rate) / 100
+                total = amount + GST_amount
+                document.getElementsByName("totalAmount")[0].value = total
+                document.getElementsByName("GSTAmount")[0].value = GST_amount
+            } else if (op == "inclusive") {
+                total = (amount) / (1 + (rate / 100))
+                GST_amount = amount - total
+                document.getElementsByName("totalAmount")[0].value = total
+                document.getElementsByName("GSTAmount")[0].value = GST_amount
+
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>GST Calculator</h1>
+    <br>
+    Enter Amount : <input type="text" name="amount" placeholder="Enter Amount">
+    <br>
+    <br>
+    Enter GST Value:
+    <select name="drpdwn" id="dropdown">
+        <option value="">--Select--</option>
+        <option value="5">5%</option>
+        <option value="12">12%</option>
+        <option value="18">18%</option>
+        <option value="28">28%</option>
+    </select>
+    <br>
+    <br>
+    Enter Type:
+    <select name="typeValue" id="typeValue">
+        <option value="">--Select--</option>
+        <option value="inclusive">Inclusive</option>
+        <option value="exclusive">Exclusive</option>
+    </select>
+    <br>
+    <br>
+    Total Amount: <input type="text" name="totalAmount" class="a">
+    <br>
+    <br>
+    GST Amount: <input type="text" name="GSTAmount" class="a">
+    <br>
+    <br>
+    <input type="button" name="btn" value="Calculate" onclick="calculate_GST()" class="b">
+</body>
+
+</html>

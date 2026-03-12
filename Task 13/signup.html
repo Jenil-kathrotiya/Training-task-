@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+
+        if (!localStorage.getItem("information")) {
+            localStorage.setItem("information", JSON.stringify({}));
+        }
+
+        function sign_in() {
+
+            var username = document.getElementById("username").value
+            var password = document.getElementById("password").value
+            var users = JSON.parse(localStorage.getItem("information")) || {};
+            if (!username) {
+                alert("Enter Username!!!")
+
+            }
+            else if (!password) {
+                alert("Enter Password!!!")
+            } else {
+                if (username in users) {
+                    alert("User already Exists!!!")
+                } else {
+                    users[username] = password;
+                    localStorage.setItem("information", JSON.stringify(users));
+                    document.getElementById("username").value = "";
+                    document.getElementById("password").value = "";
+
+                    alert("Sign in Successfully...")
+
+                    window.location.href = "login.html"
+                }
+            }
+
+
+
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Signup</h1>
+    username:<input type="text" id="username" placeholder="Enter your username">
+    <br>
+    <br>
+
+    password:<input type="password" id="password" placeholder="Enter your password">
+    <br>
+    <br>
+    <button type="submit" id="login_btn" onclick="sign_in()">Sign in</button>
+
+</body>
+
+</html>

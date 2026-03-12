@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+
+        function login() {
+
+            var username = document.getElementById("username").value
+            var password = document.getElementById("password").value
+            var users = JSON.parse(localStorage.getItem("information")) || {};
+            if (!username) {
+                alert("Enter Username!!!")
+
+
+            }
+            else if (!password) {
+                document.getElementById("username").value = username
+                alert("Enter Password!!!")
+            }
+            else {
+                if (username in users) {
+                    if (password === users[username]) {
+                        window.location.href = "dashboard.html"
+
+                    } else {
+                        alert("Invalid Password!!!")
+                    }
+
+                } else {
+                    alert("Enter correct username...")
+                }
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+
+            }
+            
+            window.onload = function(){
+                window.location.href = "home.html";
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Login</h1>
+    username:<input type="text" id="username" placeholder="Enter username">
+    <br>
+    <br>
+
+    password:<input type="password" id="password" placeholder="Enter password">
+    <br>
+    <br>
+    <button type="button" id="login_btn" onclick="login()">Login</button>
+
+</body>
+
+</html>

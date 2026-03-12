@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Entry</title>
+
+
+
+<script>
+if (!localStorage.getItem("info")) {
+    localStorage.setItem("info", JSON.stringify({}));
+}
+
+function submitEntry(){
+    var f_name = document.getElementById("firstname").value;
+    var m_name = document.getElementById("middlename").value;
+    var l_name = document.getElementById("lastname").value;
+    var age = document.getElementById("age").value;
+    var phone = document.getElementById("mobile_no").value;
+
+    if(!f_name || !phone){
+        alert("First Name and Phone are required!");
+        return;
+    }
+
+    var users = JSON.parse(localStorage.getItem("info")) || {};
+    var id = Object.keys(users).length + 1;
+
+    var user = {
+        F_name: f_name,
+        M_name: m_name,
+        L_name: l_name,
+        Age: age,
+        Phone: phone
+    };
+
+    users[id] = user;
+    localStorage.setItem("info", JSON.stringify(users));
+    
+    document.getElementById("firstname").value = "";
+    document.getElementById("middlename").value = "";
+    document.getElementById("lastname").value = "";
+    document.getElementById("age").value = "";
+    document.getElementById("mobile_no").value = "";
+
+    alert("User added successfully!");
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>Add Entry</h1>
+
+<div class="form-container">
+    <label>First Name</label>
+    <input type="text" id="firstname" placeholder="Enter Your First Name"> <br><br>
+
+    <label>Middle Name</label>
+    <input type="text" id="middlename" placeholder="Enter Your Middle Name"><br><br>
+
+    <label>Last Name</label>
+    <input type="text" id="lastname" placeholder="Enter Your Last Name"><br><br>
+
+    <label>Age</label>
+    <input type="number" id="age" placeholder="Enter Your Age"><br><br>
+
+    <label>Mobile No.</label>
+    <input type="number" id="mobile_no" placeholder="Enter Your Mobile Number"><br><br>
+
+    <button type="button" onclick="submitEntry()">Add Entry</button><br><br>
+
+    <a href="entry.html" id="view_link">View All Entries</a><br><br>
+</div><br>
+
+</body>
+</html>

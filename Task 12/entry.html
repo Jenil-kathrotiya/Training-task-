@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Entry</title>
+
+
+
+<script>
+
+function loadData(){
+
+    var all = JSON.parse(localStorage.getItem("info")) || {};
+    var table = document.getElementById("table_body");
+
+    for(var id in all){
+
+        var user = all[id];
+
+        var row = `
+        <tr>
+            <td>${id}</td>
+            <td>${user.F_name}</td>
+            <td>${user.M_name}</td>
+            <td>${user.L_name}</td>
+            <td>${user.Age}</td>
+            <td>${user.Phone}</td>
+        </tr>
+        `;
+
+        table.innerHTML += row;
+    }
+
+}
+
+</script>
+
+</head>
+
+<body onload="loadData()">
+
+<h1>All Entry</h1>
+
+<br>
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>First Name</th>
+<th>Middle Name</th>
+<th>Last Name</th>
+<th>Age</th>
+<th>Phone</th>
+</tr>
+
+</thead>
+
+<tbody id="table_body">
+
+</tbody>
+
+</table>
+<br><br>
+<a href="home 1.html" id="go_back">Go Back</a>
+
+</body>
+</html>
